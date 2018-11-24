@@ -1,14 +1,42 @@
 import {createStore} from 'redux';
 
-const store = createStore((state={count : 0},action) => {
+
+const incrementCount = ({incrementBy = 1}={}) => ({
+    type : 'INCREMENT',
+    //incrementBy : typeof payload.incrementBy === 'number' ? payload.incrementBy : 1 
+    incrementBy
+});
+
+const decrementCount = ({decrementBy = 1}={}) => ({
+    type : 'DECREMENT',
+    decrementBy
+});
+
+const setCount = ({count}) => ({
+    type : 'SET',
+    count
+});
+const resetCount = () => ({
+    type : 'RESET'
+});
+
+//REDUCERS
+//1. Reducers are pure functions
+//2. Never change state or action
+
+const countReducer = (state={count : 0},action) => {
     switch(action.type){
         case 'INCREMENT':
             return {
-                count : state.count + 1
+                count : state.count + action.incrementBy
             }
         case 'DECREMENT':
+                      return {
+                count : state.count - action.decrementBy
+            }
+        case 'SET' :
             return {
-                count : state.count - 1
+                count : action.count
             }
         case 'RESET' :
             return { count : 0}
@@ -16,24 +44,32 @@ const store = createStore((state={count : 0},action) => {
             return state;
     }
   
-});
+};
 
-console.log(store.getState());
+const store = createStore(countReducer);
 
-store.dispatch({
-    type : 'INCREMENT'
-});
+const unsubscribe = store.subscribe(()=> {
+    console.log(store.getState());
+})
 
 
-store.dispatch({
-    type : 'DECREMENT'
-});
-store.dispatch({
-    type : 'DECREMENT'
-});
-console.log(store.getState());
+// store.dispatch({
+//     type : 'INCREMENT',
+//     incrementBy : 5
+// });
 
-store.dispatch({
-    type : 'RESET'
-});
-console.log(store.getState());
+store.dispatch(incrementCount({incrementBy:5}));
+
+store.dispatch(decrementCount());
+
+store.dispatch(decrementCount({
+    decrementBy : 10
+}));
+
+
+store.dispatch(resetCount());
+
+store.dispatch(decrementCount({
+    decrementBy : 99
+}));
+store.dispatch(setCount({count : 101}));
