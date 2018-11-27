@@ -9,6 +9,7 @@ import './styles/styles.scss'
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 store.dispatch(addExpense({description:'Water Bill',amount : 100, createdAt:1543146894716}));
