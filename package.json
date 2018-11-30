@@ -5,7 +5,6 @@
   "author": "nathaniel pascual",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
     "build:dev": "webpack --watch",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
@@ -15,7 +14,7 @@
   },
   "engines": {
     "node": "10.9.0",
-    "npm" : "6.2.0"
+    "npm": "6.2.0"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -25,13 +24,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
-    "css-loader": "^0.28.4",
-    "enzyme": "^3.0.0",
-    "enzyme-adapter-react-16": "^1.0.0",
-    "enzyme-to-json": "^3.0.1",
+    "css-loader": "^0.28.4", 
     "express": "^4.16.0",
-    "jest": "^20.0.4",
-    "live-server": "^1.2.0",
     "mini-css-extract-plugin": "^0.4.5",
     "moment": "^2.22.2",
     "node-sass": "^4.10.0",
@@ -44,14 +38,21 @@
     "react-modal": "^2.2.2",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.2.2",
-    "react-test-renderer": "^16.0.0",
     "redux": "^4.0.1",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.18.2",
+    "style-loader": "^0.18.2",    
     "uuid": "^3.3.2",
     "validator": "^10.9.0",
     "webpack": "^4.26.0",
-    "webpack-cli": "^3.1.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "enzyme-to-json": "^3.0.1",
+    "jest": "^20.0.4",
+    "react-test-renderer": "^16.0.0",
     "webpack-dev-server": "^3.1.10"
   }
 }
+
