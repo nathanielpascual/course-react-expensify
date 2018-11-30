@@ -12,9 +12,9 @@ import getVisibleExpenses from './selectors/expenses';
 import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
-store.dispatch(addExpense({description:'Water Bill',amount : 100, createdAt:1543146894716}));
-store.dispatch(addExpense({description:'Gas Bill',amount : 50, createdAt:1543136894716}));
-store.dispatch(addExpense({description:'Rent',amount : 150, createdAt:1543116894716}));
+//store.dispatch(addExpense({description:'Water Bill',amount : 100, createdAt:1543146894716}));
+//store.dispatch(addExpense({description:'Gas Bill',amount : 50, createdAt:1543136894716}));
+//store.dispatch(addExpense({description:'Rent',amount : 150, createdAt:1543116894716}));
 //store.dispatch(setTextFilter('Bill'));
 //store.dispatch(setTextFilter('Water'));
 
@@ -23,8 +23,8 @@ store.dispatch(addExpense({description:'Rent',amount : 150, createdAt:1543116894
 // },3000)
 
 
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses,state.filters);
+//const state = store.getState();
+//const visibleExpenses = getVisibleExpenses(state.expenses,state.filters);
 
 //console.log(visibleExpenses);
 
