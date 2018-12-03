@@ -2,9 +2,10 @@
 
 exports[`should render LoginPage  1`] = `
 <div>
-  <button>
+  <button
+    onClick={[Function]}
+  >
     Login
   </button>
-  .
 </div>
 `;
