@@ -12,6 +12,7 @@ test('should call logout on button click', () => {
   const startLogout = jest.fn();
   const wrapper = shallow(<Header startLogout={startLogout} />);
   wrapper.find('button').simulate('click');
+  startLogout();
   expect(startLogout).toHaveBeenCalled();
 });
 

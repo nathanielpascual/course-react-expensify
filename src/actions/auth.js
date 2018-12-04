@@ -4,8 +4,5 @@ export const startLogin =()=>{
 };
 
 export const startLogout = () => {
-        return ()=>{
-                return firebase.auth().signOut();
-        }
-       
+        return firebase.auth().signOut();
 }

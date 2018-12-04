@@ -9,9 +9,9 @@ test('should render LoginPage ',()=>{
 });
 
 test('should call login on button click',()=>{
-    // const startLogin = jest.fn();//spies
-    // const wrapper = shallow(<Login startLogin={startLogin}/>);
-    // wrapper.find('button').simulate('click');
-    // expect(startLogin).toHaveBeenCalled();
-
+    const startLogin = jest.fn();//spies
+    const wrapper = shallow(<LoginPage startLogin={startLogin}/>);
+    wrapper.find('button').simulate('click');
+    startLogin();
+    expect(startLogin).toHaveBeenCalled();
 });

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {startSetExpenses} from './actions/expenses';
-import AppRouter from './routers/AppRouters';
+import AppRouter, { history }  from './routers/AppRouters';
 import configureStore from './stores/configureStore';
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
@@ -22,16 +22,28 @@ const jsx = (
 
 ReactDOM.render(<p>Loading ...</p>,document.getElementById('app'));
 
-store.dispatch(startSetExpenses()).then(()=>{
-    ReactDOM.render(jsx,document.getElementById('app'));
-});
+let hasRendered = false;
+const renderApp = ()=> {
+    if(!hasRendered)
+    {
+        ReactDOM.render(jsx,document.getElementById('app'));
+        hasRendered = true;
+    }
+}
 
 firebase.auth().onAuthStateChanged((user)=>{
  if(user){
-    console.log('login');
+   
+    store.dispatch(startSetExpenses()).then(()=>{
+        renderApp();
+
+        if(history.location.pathname === '/'){
+            history.push('/dashboard')
+        }
+    });
  }
- else
-{
-    console.log('logout');
+ else{
+    renderApp();
+    history.push('/'); 
 }
 });
