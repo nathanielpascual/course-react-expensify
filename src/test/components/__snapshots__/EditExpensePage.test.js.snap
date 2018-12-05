@@ -35,27 +35,41 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h1>
-          Edit Expense
-</h1>,
-        <ExpenseForm
-          expense={
-                    Object {
-                              "amount": 4500,
-                              "createdAt": 345600000,
-                              "description": "Credit Card",
-                              "id": "3",
-                              "note": "",
-                            }
-          }
-          onSubmit={[Function]}
-/>,
-        <br />,
-        <button
-          onClick={[Function]}
+        <div
+          className="page-header"
 >
-          Remove
-</button>,
+          <div
+                    className="content-container"
+          >
+                    <h1
+                              className="page-header__title"
+                    >
+                              Edit Expense
+                    </h1>
+          </div>
+</div>,
+        <div
+          className="content-container"
+>
+          <ExpenseForm
+                    expense={
+                              Object {
+                                        "amount": 4500,
+                                        "createdAt": 345600000,
+                                        "description": "Credit Card",
+                                        "id": "3",
+                                        "note": "",
+                                      }
+                    }
+                    onSubmit={[Function]}
+          />
+          <button
+                    className="button button--secondary"
+                    onClick={[Function]}
+          >
+                    Remove Expense
+          </button>
+</div>,
       ],
     },
     "ref": null,
@@ -65,50 +79,109 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Edit Expense",
+          "children": <div
+            className="content-container"
+>
+            <h1
+                        className="page-header__title"
+            >
+                        Edit Expense
+            </h1>
+</div>,
+          "className": "page-header",
         },
         "ref": null,
-        "rendered": "Edit Expense",
-        "type": "h1",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "expense": Object {
-            "amount": 4500,
-            "createdAt": 345600000,
-            "description": "Credit Card",
-            "id": "3",
-            "note": "",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h1
+              className="page-header__title"
+>
+              Edit Expense
+</h1>,
+            "className": "content-container",
           },
-          "onSubmit": [Function],
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Edit Expense",
+              "className": "page-header__title",
+            },
+            "ref": null,
+            "rendered": "Edit Expense",
+            "type": "h1",
+          },
+          "type": "div",
         },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": "br",
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Remove",
-          "onClick": [Function],
+          "children": Array [
+            <ExpenseForm
+              expense={
+                            Object {
+                                          "amount": 4500,
+                                          "createdAt": 345600000,
+                                          "description": "Credit Card",
+                                          "id": "3",
+                                          "note": "",
+                                        }
+              }
+              onSubmit={[Function]}
+/>,
+            <button
+              className="button button--secondary"
+              onClick={[Function]}
+>
+              Remove Expense
+</button>,
+          ],
+          "className": "content-container",
         },
         "ref": null,
-        "rendered": "Remove",
-        "type": "button",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "expense": Object {
+                "amount": 4500,
+                "createdAt": 345600000,
+                "description": "Credit Card",
+                "id": "3",
+                "note": "",
+              },
+              "onSubmit": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Remove Expense",
+              "className": "button button--secondary",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Remove Expense",
+            "type": "button",
+          },
+        ],
+        "type": "div",
       },
     ],
     "type": "div",
@@ -120,27 +193,41 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h1>
-            Edit Expense
-</h1>,
-          <ExpenseForm
-            expense={
-                        Object {
-                                    "amount": 4500,
-                                    "createdAt": 345600000,
-                                    "description": "Credit Card",
-                                    "id": "3",
-                                    "note": "",
-                                  }
-            }
-            onSubmit={[Function]}
-/>,
-          <br />,
-          <button
-            onClick={[Function]}
+          <div
+            className="page-header"
 >
-            Remove
-</button>,
+            <div
+                        className="content-container"
+            >
+                        <h1
+                                    className="page-header__title"
+                        >
+                                    Edit Expense
+                        </h1>
+            </div>
+</div>,
+          <div
+            className="content-container"
+>
+            <ExpenseForm
+                        expense={
+                                    Object {
+                                                "amount": 4500,
+                                                "createdAt": 345600000,
+                                                "description": "Credit Card",
+                                                "id": "3",
+                                                "note": "",
+                                              }
+                        }
+                        onSubmit={[Function]}
+            />
+            <button
+                        className="button button--secondary"
+                        onClick={[Function]}
+            >
+                        Remove Expense
+            </button>
+</div>,
         ],
       },
       "ref": null,
@@ -150,50 +237,109 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Edit Expense",
+            "children": <div
+              className="content-container"
+>
+              <h1
+                            className="page-header__title"
+              >
+                            Edit Expense
+              </h1>
+</div>,
+            "className": "page-header",
           },
           "ref": null,
-          "rendered": "Edit Expense",
-          "type": "h1",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "expense": Object {
-              "amount": 4500,
-              "createdAt": 345600000,
-              "description": "Credit Card",
-              "id": "3",
-              "note": "",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <h1
+                className="page-header__title"
+>
+                Edit Expense
+</h1>,
+              "className": "content-container",
             },
-            "onSubmit": [Function],
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Edit Expense",
+                "className": "page-header__title",
+              },
+              "ref": null,
+              "rendered": "Edit Expense",
+              "type": "h1",
+            },
+            "type": "div",
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": "br",
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Remove",
-            "onClick": [Function],
+            "children": Array [
+              <ExpenseForm
+                expense={
+                                Object {
+                                                "amount": 4500,
+                                                "createdAt": 345600000,
+                                                "description": "Credit Card",
+                                                "id": "3",
+                                                "note": "",
+                                              }
+                }
+                onSubmit={[Function]}
+/>,
+              <button
+                className="button button--secondary"
+                onClick={[Function]}
+>
+                Remove Expense
+</button>,
+            ],
+            "className": "content-container",
           },
           "ref": null,
-          "rendered": "Remove",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "expense": Object {
+                  "amount": 4500,
+                  "createdAt": 345600000,
+                  "description": "Credit Card",
+                  "id": "3",
+                  "note": "",
+                },
+                "onSubmit": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Remove Expense",
+                "className": "button button--secondary",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Remove Expense",
+              "type": "button",
+            },
+          ],
+          "type": "div",
         },
       ],
       "type": "div",
