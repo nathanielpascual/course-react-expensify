@@ -16,3 +16,8 @@
     background:none;
     border:none;
 }
+
+.button--secondary {
+    @extend button;
+    background-color:#888888;
+}
