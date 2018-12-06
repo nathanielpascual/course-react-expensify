@@ -21,7 +21,6 @@ const jsx = (
     
 );
 
-
 ReactDOM.render(<LoadingPage/>,document.getElementById('app'));
 
 let hasRendered = false;
