@@ -70,6 +70,11 @@ ShallowWrapper {
                     Remove Expense
           </button>
 </div>,
+        <RemoveExpenseModal
+          onClearSelectedExpense={[Function]}
+          onConfirm={[Function]}
+          showModal={false}
+/>,
       ],
     },
     "ref": null,
@@ -183,6 +188,19 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "onClearSelectedExpense": [Function],
+          "onConfirm": [Function],
+          "showModal": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -228,6 +246,11 @@ ShallowWrapper {
                         Remove Expense
             </button>
 </div>,
+          <RemoveExpenseModal
+            onClearSelectedExpense={[Function]}
+            onConfirm={[Function]}
+            showModal={false}
+/>,
         ],
       },
       "ref": null,
@@ -340,6 +363,19 @@ ShallowWrapper {
             },
           ],
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "onClearSelectedExpense": [Function],
+            "onConfirm": [Function],
+            "showModal": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
       ],
       "type": "div",

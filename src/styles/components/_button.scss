@@ -21,3 +21,8 @@
     @extend button;
     background-color:#888888;
 }
+
+.button--warning {
+    @extend button;
+    background-color:#790d0d;
+}

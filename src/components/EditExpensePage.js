@@ -2,17 +2,33 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
+import RemoveExpenseModal from './RemoveExpenseModal';
 
 export class EditExpensePage extends React.Component {
+    state = {
+        showModal : false
+    }
+
     onSubmit = (expense) => {
-       this.props.startEditExpense(this.props.expense.id, expense);
+        this.props.startEditExpense(this.props.expense.id, expense);
         this.props.history.push('/dashboard');
     };
 
     onRemove = () => {
-        this.props.startRemoveExpense({id:this.props.expense.id});
-        this.props.history.push('/dashboard');
+   
+        this.setState({showModal:true})
     };
+
+    onConfirm = ()=> {
+            this.props.startRemoveExpense({id:this.props.expense.id});
+            this.setState({showModal:false})
+            this.props.history.push('/dashboard');
+        
+    }
+
+    onClearSelectedExpense= () => {
+        this.setState({showModal:false})
+    }
 
     render() {
         return (
@@ -27,15 +43,22 @@ export class EditExpensePage extends React.Component {
                         expense={this.props.expense}
                         onSubmit={this.onSubmit}/>
                     <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
-                </div>   
+                </div>  
+                
+                <RemoveExpenseModal 
+                    showModal={this.state.showModal}
+                    onClearSelectedExpense = {this.onClearSelectedExpense} 
+                    onConfirm = {this.onConfirm}
+                    />
             </div>
         );
     }
 };
 
 const mapStateToProps = (state, props) => ({
-    expense : state.expenses.find((expense)=> expense.id === props.match.params.id)
+    expense : state.expenses.length !==undefined ? state.expenses.find((expense)=> expense.id === props.match.params.id) : state.expenses
 });
+
 const mapDispatchToProps = (dispatch) => ({
         startEditExpense : (id, expense) => dispatch(startEditExpense(id,expense)),
         startRemoveExpense : (data) => dispatch(startRemoveExpense(data))
