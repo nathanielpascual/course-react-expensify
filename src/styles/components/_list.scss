@@ -39,12 +39,13 @@
 }
 
 .list_item__data{
-    margin-top:$s-size 0 0 0;
+    margin-top:$s-size;
 
     @media(min-width: $desktop-breakpoint)
     {
         margin:0;
         padding-left:$s-size;
+        text-align: right;
     }
 }
 

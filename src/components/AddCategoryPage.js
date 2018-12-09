@@ -1,14 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import ExpenseForm from './ExpenseForm';
-import { startAddExpense } from '../actions/expenses';
+import CategoryForm from './CategoryForm';
+import { startAddCategory } from '../actions/categories';
 
-export class AddExpensePage extends React.Component {
-    state = {
-        formStatus : 'add'
-    }
-    onSubmit = (expense) => { React.Component 
-        this.props.startAddExpense(expense);
+export class AddCategoryPage extends React.Component {
+    onSubmit = (category) => { React.Component 
+        this.props.startAddCategory(category);
         this.props.history.push('/dashboard');
     }
     render(){
@@ -16,12 +13,11 @@ export class AddExpensePage extends React.Component {
             <div>
                 <div className="page-header">
                     <div className="content-container">
-                        <h1 className="page-header__title">Add Expense</h1>
+                        <h1 className="page-header__title">Add Category</h1>
                     </div>
                 </div>
                 <div className="content-container">
-                    <ExpenseForm 
-                        formStatus={this.formStatus}
+                    <CategoryForm 
                         categories = {this.props.categories}
                         onSubmit = {this.onSubmit}/>
                 </div>
@@ -35,6 +31,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    startAddExpense : (expense) => dispatch(startAddExpense(expense))
+    startAddCategory : (category) => dispatch(startAddCategory(category))
 });
-export default connect(mapStateToProps,mapDispatchToProps)(AddExpensePage);
+export default connect(mapStateToProps,mapDispatchToProps)(AddCategoryPage);

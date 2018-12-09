@@ -6,7 +6,8 @@ import RemoveExpenseModal from './RemoveExpenseModal';
 
 export class EditExpensePage extends React.Component {
     state = {
-        showModal : false
+        showModal : false,
+        formStatus : 'edit'
     }
 
     onSubmit = (expense) => {
@@ -40,6 +41,8 @@ export class EditExpensePage extends React.Component {
                 </div>
                 <div className="content-container">
                     <ExpenseForm 
+                        formStatus={this.formStatus}
+                        categories = {this.props.categories}
                         expense={this.props.expense}
                         onSubmit={this.onSubmit}/>
                     <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
@@ -56,7 +59,8 @@ export class EditExpensePage extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-    expense : state.expenses.length !==undefined ? state.expenses.find((expense)=> expense.id === props.match.params.id) : state.expenses
+    expense : state.expenses.length !==undefined ? state.expenses.find((expense)=> expense.id === props.match.params.id) : state.expenses,
+    categories : state.categories
 });
 
 const mapDispatchToProps = (dispatch) => ({

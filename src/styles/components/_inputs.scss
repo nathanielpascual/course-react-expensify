@@ -10,6 +10,18 @@
     @extend .text-input;
 }
 
+.input__max-width {
+    width:100%;
+}
+.select__max-width {
+    width:100%;
+}
+
+.optionDefault
+{
+    color: #cacacd;
+}
+
 .textarea{
     @extend .text-input;
     height:10rem;

@@ -11,6 +11,8 @@ import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 import 'react-dates/lib/css/_datepicker.css';
 import LoadingPage from './components/LoadingPage';
+import CategoriesFixture from './fixtures/category';
+import { startSetCategories } from './actions/categories';
 
 const store = configureStore();
 
@@ -36,6 +38,8 @@ firebase.auth().onAuthStateChanged((user)=>{
  if(user){
     store.dispatch(login(user.uid));
     store.dispatch(startSetExpenses()).then(()=>{
+        CategoriesFixture(user.uid);
+        store.dispatch(startSetCategories());
         renderApp();
 
         if(history.location.pathname === '/'){

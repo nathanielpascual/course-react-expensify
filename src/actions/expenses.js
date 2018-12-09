@@ -23,12 +23,13 @@ export const startAddExpense = (expenseData = {}) => {
         const uid = getState().auth.uid;
         const {
             description = '',
+            category = '',
             note = '',
             amount = 0,
             createdAt = 0
         } = expenseData;
 
-    const expense = {description, note, amount, createdAt};
+    const expense = {description, category, note, amount, createdAt};
 
     return database.ref(`Users/${uid}/Expenses`)
             .push(expense)
