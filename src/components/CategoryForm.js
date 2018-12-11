@@ -7,18 +7,12 @@ export default class CategoryForm extends React.Component {
         this.state = {
             description: props.category? props.category.description : '',
             parentId : props.category? props.category.parentId : '',
-            error : '',
-            categories : props.categories ? props.categories : null
+            error : ''
         }
     }
     onDescriptionChange = (e)=> {
         const description = e.target.value;
         this.setState(()=>({description}));
-    };
-
-    onCategoryChange =(e)=> {
-        const parentId = e.target.value;
-        this.setState(()=>({parentId}));
     };
 
     onSubmit =(e)=>{
@@ -34,12 +28,12 @@ export default class CategoryForm extends React.Component {
             })
         }
     }
+
+    onCancel = (e)=> {
+        e.preventDefault();
+    }
+    
     render() {
-        let optionItems = this.state.categories.map((category) =>
-        <option key={category.parentId} 
-                defaultValue={this.state.parentId}
-                value={category.parentId}>{category.description}</option>
-         );
         return (
             <form className="form" onSubmit={this.onSubmit}>
             {this.state.error && <p className="form__error">{this.state.error}</p>}
@@ -52,21 +46,9 @@ export default class CategoryForm extends React.Component {
                         value={this.state.description}
                         onChange={this.onDescriptionChange}/>
                 </div>
-                <div className="field">
-                    <div className="field__control"><select
-                            className="select select__max-width"
-                            value = {this.state.category} 
-                            onChange ={this.onCategoryChange}>
-                            <option className="optionDefault" key="0" value="0" >-Select Parent-</option>
-                            {optionItems}
-                        </select>
-                    </div>
-                    <div className="field__button-control">
-                        <Link className="button" to="/createCategory">+</Link>
-                    </div>
-                </div> 
                 <div>
-                    <button className="button">Save Expense</button>
+                    <button className="button--secondary">Cancel</button>
+                    <button className="button">Save</button>
                  </div>
             </form>
         )
