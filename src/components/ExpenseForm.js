@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import {SingleDatePicker} from 'react-dates';
-import { Link } from 'react-router-dom';
+import AddCategoryModal from './AddCategoryModal';
 
 export default class ExpenseForm extends React.Component {
     constructor(props)
@@ -15,7 +15,9 @@ export default class ExpenseForm extends React.Component {
             createdAt : props.expense ? moment(props.expense.createdAt) : moment(),
             calendarFocused : false,
             error : '',
-            categories : props.categories ? props.categories : null
+            categories : props.categories ? props.categories : null,
+            showCategoryModal:false,
+            showSubCategoryModal:false
         }
     }
     
@@ -51,6 +53,11 @@ export default class ExpenseForm extends React.Component {
     onFocusChange = ({focused}) => {
         this.setState(()=>({calendarFocused:focused}))
     };
+    
+    onShowCategory = (e) => {
+        e.preventDefault();
+        this.setState({showCategoryModal:true})
+    };
 
     onSubmit =(e)=>{
         e.preventDefault();
@@ -67,7 +74,9 @@ export default class ExpenseForm extends React.Component {
                 createdAt : this.state.createdAt.valueOf()
             })
         }
-    }
+    }   
+
+    
 
     render(){
         let optionItems = this.state.categories.map((category) =>
@@ -104,7 +113,7 @@ export default class ExpenseForm extends React.Component {
                             </select>
                         </div>
                         <div className="field__button-control">
-                            <Link className="button" to="/createCategory">+</Link>
+                            <button className="button" onClick={this.onShowCategory}>+</button>
                         </div>
                         
                     </div> 
@@ -127,7 +136,9 @@ export default class ExpenseForm extends React.Component {
                     <div>
                        <button className="button">Save Expense</button>
                     </div>
-                   
+
+                    <AddCategoryModal 
+                        showCategoryModal={this.state.showCategoryModal}/>
                 </form>
         )
     }

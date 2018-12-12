@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startAddExpense } from '../actions/expenses';
+import AddCategoryModal from './AddCategoryModal';
 
 export class AddExpensePage extends React.Component {
     state = {
@@ -25,6 +26,7 @@ export class AddExpensePage extends React.Component {
                         categories = {this.props.categories}
                         onSubmit = {this.onSubmit}/>
                 </div>
+               
             </div>
         );
     }
