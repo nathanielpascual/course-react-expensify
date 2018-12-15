@@ -2,13 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startAddExpense } from '../actions/expenses';
-import AddCategoryModal from './AddCategoryModal';
 
 export class AddExpensePage extends React.Component {
     state = {
         formStatus : 'add'
     }
-    onSubmit = (expense) => { React.Component 
+    onSubmit = (expense) => {
         this.props.startAddExpense(expense);
         this.props.history.push('/dashboard');
     }

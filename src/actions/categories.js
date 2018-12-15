@@ -8,13 +8,13 @@ export const addCategory=(category)=> ({
 
 export const startAddCategory=(categoryData={})=>{
     return(dispatch,getState)=>{
-        const uid = getState().auth.id;
+        const uid = getState().auth.uid;
         const {
                 description = '',
-                parentId=0
+                parentId='0'
         }=categoryData;
 
-        const category = { description, parentId};
+        const category = { description, parentId };
 
         return database.ref(`Users/${uid}/Categories`)
                        .push(category)

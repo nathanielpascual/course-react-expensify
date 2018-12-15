@@ -1,8 +1,10 @@
 import React from 'react';
 import moment from 'moment';
 import {SingleDatePicker} from 'react-dates';
-import AddCategoryModal from './AddCategoryModal';
+import UpdateCategoryModal from './UpdateCategoryModal';
+import { isNullOrUndefined } from 'util';
 
+let optionItems = [];
 export default class ExpenseForm extends React.Component {
     constructor(props)
     {
@@ -17,7 +19,8 @@ export default class ExpenseForm extends React.Component {
             error : '',
             categories : props.categories ? props.categories : null,
             showCategoryModal:false,
-            showSubCategoryModal:false
+            showSubCategoryModal:false,
+            selectedCategory:0
         }
     }
     
@@ -41,7 +44,9 @@ export default class ExpenseForm extends React.Component {
 
     onCategoryChange =(e)=> {
         const category = e.target.value;
+        const selectedCategory = e.target.selectedIndex;
         this.setState(()=>({category}));
+        this.setState(()=>({selectedCategory}));
     };
 
     onDateChange =(createdAt) => {
@@ -76,12 +81,25 @@ export default class ExpenseForm extends React.Component {
         }
     }   
 
-    
+    onCancel = () => {
+        this.setState({showCategoryModal:false})
+    };
+
+    onUpdateCategory = () => {
+        this.setState({showCategoryModal:false});
+     }
 
     render(){
-        let optionItems = this.state.categories.map((category) =>
-                <option key={category.description} defaultValue={this.state.category}>{category.description}</option>
-            );
+        {
+            let tempList = this.props.categories.filter((category)=> category.type === 'ADD_CATEGORY')
+
+            if(tempList.length ===0 || isNullOrUndefined(tempList)) {
+                optionItems= this.props.categories !==null && this.props.categories.map((category) =>
+                    <option key={category.id} id={category.id} value={category.description}>{category.description}</option>
+                );
+            }
+            tempList = null;
+        }
         return (
                 <form className="form" onSubmit={this.onSubmit}>
                    {this.state.error && <p className="form__error">{this.state.error}</p>}
@@ -108,7 +126,7 @@ export default class ExpenseForm extends React.Component {
                                 className="select select__max-width"
                                 value = {this.state.category} 
                                 onChange ={this.onCategoryChange}>
-                                <option className="optionDefault" key="0" >-Select Category-</option>
+                                <option className="optionDefault" key="-1" id="-1">-Select Category-</option>
                                 {optionItems}
                             </select>
                         </div>
@@ -137,8 +155,15 @@ export default class ExpenseForm extends React.Component {
                        <button className="button">Save Expense</button>
                     </div>
 
-                    <AddCategoryModal 
-                        showCategoryModal={this.state.showCategoryModal}/>
+                    {
+                     this.state.selectedCategory===0 ? (
+                        <UpdateCategoryModal 
+                            showCategoryModal={this.state.showCategoryModal}
+                            onCancel ={this.onCancel}
+                            onUpdateCategory = {this.onUpdateCategory}
+                            categories={this.state.categories}/>
+                        ) : ( '' )
+                    }
                 </form>
         )
     }
