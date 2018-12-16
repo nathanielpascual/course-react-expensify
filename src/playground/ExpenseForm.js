@@ -18,6 +18,7 @@ export default class ExpenseForm extends React.Component {
             createdAt : props.expense ? moment(props.expense.createdAt) : moment(),
             calendarFocused : false,
             error : '',
+            categories : props.categories ? props.categories : null,
             showCategoryModal:false,
             showSubCategoryModal:false,
             selectedCategory:0
@@ -144,8 +145,9 @@ export default class ExpenseForm extends React.Component {
                             readOnly
                             value = {this.state.category}
                             onClick ={this.onShowCategory}
+                            onChange ={this.onCategoryChange}
                         />
-                   </div> 
+                   </div>  
 
                     <SingleDatePicker
                         date = {this.state.createdAt}
@@ -170,9 +172,18 @@ export default class ExpenseForm extends React.Component {
                             showCategoryModal={this.state.showCategoryModal}
                             onCancel ={this.onCancel}
                             onUpdateCategory = {this.onUpdateCategory}
-                            categories={this.props.categories}/> 
+                            categories={this.state.categories}/> 
                     }
-                   
+
+                    {
+                     this.state.selectedCategory===0 ? (
+                        <UpdateCategoryModal 
+                            showCategoryModal={this.state.showCategoryModal}
+                            onCancel ={this.onCancel}
+                            onUpdateCategory = {this.onUpdateCategory}
+                            categories={this.state.categories}/>
+                        ) : ( '' )
+                    }
                     
                    
                 </form>

@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     transition : opacity 200ms ease-in-out;
+    overflow: hidden;
 }
 
 .ReactModalPortal .ReactModal__Overlay--after-open {
@@ -18,7 +19,7 @@
 }
 
 .modal {
-    background: $darkMedium-blue;//darken(#cdcdcd,10%);
+    background: $darkMedium-blue;
     color:white;
     max-width: 35rem;
     outline:none;
@@ -30,6 +31,11 @@
     -webkit-background-clip: padding-box;
     -moz-background-clip: padding-box;
     background-clip: padding-box;
+}
+
+.modal--list {
+    @extend .modal;
+    width: 60rem;
 }
 
 .modal--title {
@@ -58,4 +64,23 @@
     button {
         margin-right:.5rem;
     }
+}
+
+.modal--content--title {
+    height:2.2rem;
+    background: #adadad; 
+    display: flex;
+    flex-direction: column;
+    padding:2rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.modal--content--title__main {
+    @extend .modal--content--title;
+    margin:$s-size;
+    padding:$s-size;
+    background:none;
+    color:#adadad;
+    font-size:$font-size-large;
 }
