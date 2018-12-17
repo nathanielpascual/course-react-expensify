@@ -40,6 +40,10 @@ class CategoryModal extends React.Component{
                        )}
                     </div>      
                 </div>
+                <div className="form__footer-container">
+                    <button className="button button--secondary">Cancel</button>
+                    <button className="button">Add</button>
+                 </div>
                 { 
                     ( this.state.category !== '' &&
                         <SelectCategoryModal 

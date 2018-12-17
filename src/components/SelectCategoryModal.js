@@ -45,7 +45,10 @@ class SelectCategoryModal extends React.Component{
                        </div>
                     </div>      
                 </div>
-                
+              <div className="form__footer-container">
+                <button className="button button--secondary">Cancel</button>
+                <button className="button">Add</button>
+             </div> 
             </Modal> 
         )
     };
